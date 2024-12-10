@@ -195,7 +195,16 @@ void _drawD()
         STEP_Y();
     }
 
-    for (int i = 0; i < (.125 * CHAR_SIZE); i++)
+    SET_Y_DIR(POSITIVE);
+
+    for (int i = 0; i < (.5 * CHAR_SIZE); i++)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+
+    SET_X_DIR(NEGITIVE);
+    for (int i = 0; i < (.5 * CHAR_SIZE); i++)
     {
         STEP_Y();
         STEP_X();
