@@ -272,9 +272,120 @@ void _drawE()
         STEP_X();
     }
 }
+void _drawF()
+{
+    SET_Y_DIR(NEGITIVE);
+    SET_X_DIR(POSITIVE);
 
-void _drawF() {}
-void _drawG() {}
+    LASER_OFF();
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+
+    LASER_ON();
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+}
+void _drawG()
+{
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(NEGITIVE);
+    LASER_OFF();
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+
+    LASER_ON();
+    SET_X_DIR(NEGITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+}
 void _drawH() {}
 void _drawI() {}
 void _drawJ() {}
@@ -388,13 +499,35 @@ int main(int argc, char *argv[])
         ClearBackground(BLACK);
 
         drawchar('a');
+        drawchar(' ');
         drawchar('b');
-        drawchar('a');
+        drawchar(' ');
         drawchar('c');
-        drawchar('a');
-        drawchar('D');
-        drawchar('a');
+        drawchar(' ');
+        drawchar('d');
+        drawchar(' ');
         drawchar('e');
+        drawchar(' ');
+        drawchar('f');
+        drawchar(' ');
+        drawchar('g');
+        drawchar(' ');
+        drawchar('h');
+        drawchar(' ');
+        drawchar('i');
+        drawchar(' ');
+        drawchar('j');
+        drawchar(' ');
+        drawchar('k');
+        drawchar(' ');
+        drawchar('l');
+        drawchar(' ');
+        drawchar('m');
+        drawchar(' ');
+        drawchar('n');
+        drawchar(' ');
+        drawchar('o');
+        drawchar(' ');
 
         // drawchar('h');
         // drawchar('e');
