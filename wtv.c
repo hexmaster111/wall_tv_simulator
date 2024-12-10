@@ -54,11 +54,10 @@ void LASER_OFF()
 #define CHAR_PAD (3)
 
 /*
- *      When calling a _draw'char' func,
-            laser should be on
-            in the bottem left corner of the start of the char
-
-        _draw'char' will leave XDIR(POSITIVE)
+ *     When calling a _draw'char' func,
+ *          laser should be on
+ *          in the bottem left corner of the start of the char
+ *     _draw'char' will leave XDIR(POSITIVE)
  */
 
 void _drawA()
@@ -429,8 +428,96 @@ void _drawH()
         STEP_Y();
     }
 }
-void _drawI() {}
-void _drawJ() {}
+void _drawI()
+{
+    SET_Y_DIR(NEGITIVE);
+    LASER_OFF();
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_X_DIR(NEGITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(POSITIVE);
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_Y();
+    }
+    LASER_OFF();
+    SET_X_DIR(NEGITIVE);
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+    SET_X_DIR(POSITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+}
+void _drawJ()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+}
 void _drawK() {}
 void _drawL() {}
 void _drawM() {}
