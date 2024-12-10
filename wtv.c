@@ -209,8 +209,70 @@ void _drawD()
         STEP_Y();
         STEP_X();
     }
+
+    LASER_OFF();
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < (.5 * CHAR_SIZE); i++)
+    {
+        STEP_X();
+    }
 }
-void _drawE() {}
+void _drawE()
+{
+    SET_Y_DIR(NEGITIVE);
+    SET_X_DIR(POSITIVE);
+
+    LASER_OFF();
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+
+    LASER_ON();
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_X();
+    }
+
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+}
+
 void _drawF() {}
 void _drawG() {}
 void _drawH() {}
@@ -331,6 +393,8 @@ int main(int argc, char *argv[])
         drawchar('c');
         drawchar('a');
         drawchar('D');
+        drawchar('a');
+        drawchar('e');
 
         // drawchar('h');
         // drawchar('e');
