@@ -386,7 +386,49 @@ void _drawG()
         STEP_Y();
     }
 }
-void _drawH() {}
+void _drawH()
+{
+    SET_Y_DIR(NEGITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+
+    SET_Y_DIR(POSITIVE);
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+    SET_X_DIR(POSITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    {
+        STEP_Y();
+    }
+}
 void _drawI() {}
 void _drawJ() {}
 void _drawK() {}
@@ -457,6 +499,17 @@ void drawchar(char c)
     // clang-format on
 }
 
+#include <string.h>
+void DrawString(const char *str)
+{
+    int len = strlen(str);
+    for (int i = 0; i < len; i++)
+    {
+        drawchar(*str);
+        str++;
+    }
+}
+
 void DrawSquare()
 {
     for (int i = 0; i < 300; i++)
@@ -498,48 +551,7 @@ int main(int argc, char *argv[])
         BeginDrawing();
         ClearBackground(BLACK);
 
-        drawchar('a');
-        drawchar(' ');
-        drawchar('b');
-        drawchar(' ');
-        drawchar('c');
-        drawchar(' ');
-        drawchar('d');
-        drawchar(' ');
-        drawchar('e');
-        drawchar(' ');
-        drawchar('f');
-        drawchar(' ');
-        drawchar('g');
-        drawchar(' ');
-        drawchar('h');
-        drawchar(' ');
-        drawchar('i');
-        drawchar(' ');
-        drawchar('j');
-        drawchar(' ');
-        drawchar('k');
-        drawchar(' ');
-        drawchar('l');
-        drawchar(' ');
-        drawchar('m');
-        drawchar(' ');
-        drawchar('n');
-        drawchar(' ');
-        drawchar('o');
-        drawchar(' ');
-
-        // drawchar('h');
-        // drawchar('e');
-        // drawchar('l');
-        // drawchar('l');
-        // drawchar('o');
-        // drawchar(' ');
-        // drawchar('w');
-        // drawchar('o');
-        // drawchar('r');
-        // drawchar('l');
-        // drawchar('d');
+        DrawString("HELLO WORLD! A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) -");
 
         EndDrawing();
     }
