@@ -953,9 +953,188 @@ void _drawT()
 
     LASER_ON();
 }
-void _drawU() {}
-void _drawV() {}
-void _drawW() {}
+void _drawU()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+}
+void _drawV()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_Y_DIR(POSITIVE);
+
+    char blink = 0;
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+
+        if (!blink)
+        {
+            STEP_X();
+            blink = 1;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+
+        if (!blink)
+        {
+            STEP_X();
+            blink = 1;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+
+    SET_Y_DIR(POSITIVE);
+    LASER_OFF();
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+}
+void _drawW()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_Y_DIR(POSITIVE);
+
+    char blink = 0;
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+
+        if (!blink)
+        {
+            STEP_X();
+            blink = 1;
+        }
+        else if (blink == 1)
+        {
+            blink = 2;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+
+        if (!blink)
+        {
+            STEP_X();
+            blink = 1;
+        }
+        else if (blink == 1)
+        {
+            blink = 2;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+
+        if (!blink)
+        {
+            STEP_X();
+            blink = 1;
+        }
+        else if (blink == 1)
+        {
+            blink = 2;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+
+        if (!blink)
+        {
+            STEP_X();
+            blink = 1;
+        }
+        else if (blink == 1)
+        {
+            blink = 2;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+}
 void _drawX() {}
 void _drawY() {}
 void _drawZ() {}
