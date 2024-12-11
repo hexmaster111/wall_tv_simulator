@@ -54,9 +54,6 @@ void LASER_OFF()
     g_laser_state = 0;
 }
 
-#define CHAR_SIZE (20)
-#define CHAR_PAD (5)
-
 /*
  *     When calling a _draw'char' func,
  *          laser should be on
@@ -65,6 +62,8 @@ void LASER_OFF()
  */
 
 #define FORI(SOME) for (int i = 0; i < (SOME); i++)
+#define CHAR_SIZE (20)
+#define CHAR_PAD (5)
 
 void _drawA()
 {
@@ -1249,6 +1248,294 @@ void _drawZ()
         STEP_X();
     }
 }
+void _draw0()
+{
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+
+    LASER_OFF();
+
+    SET_X_DIR(NEGITIVE);
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    SET_X_DIR(POSITIVE);
+    LASER_ON();
+
+    // O VVVV
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+}
+void _draw1()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+}
+void _draw2()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+}
+void _draw3()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+}
+void _draw4()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+}
+void _draw5() { _drawS(); }
+void _draw6()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+    }
+}
+void _draw7()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+}
+void _draw8() {}
+void _draw9() {}
+
 void _drawSpace()
 {
     LASER_OFF();
@@ -1289,6 +1576,16 @@ void drawchar(char c)
     else if (c == 'X' || c == 'x') _drawX();
     else if (c == 'Y' || c == 'y') _drawY();
     else if (c == 'Z' || c == 'z') _drawZ();
+    else if (c == '0') _draw0();
+    else if (c == '1') _draw1();
+    else if (c == '2') _draw2();
+    else if (c == '3') _draw3();
+    else if (c == '4') _draw4();
+    else if (c == '5') _draw5();
+    else if (c == '6') _draw6();
+    else if (c == '7') _draw7();
+    else if (c == '8') _draw8();
+    else if (c == '9') _draw9();
     else if (c == ' ') _drawSpace();
 
     DrawCircle(g_x, g_y, 2.5, GREEN);
@@ -1356,7 +1653,11 @@ int main(int argc, char *argv[])
         BeginDrawing();
         ClearBackground(BLACK);
 
-        DrawString("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-");
+        DrawString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+        g_x = 50, g_y = g_y + CHAR_SIZE + CHAR_PAD;
+
+        DrawString("0123456789!@#$%^&*()-");
 
         EndDrawing();
     }
