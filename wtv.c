@@ -1533,8 +1533,117 @@ void _draw7()
         STEP_Y();
     }
 }
-void _draw8() {}
-void _draw9() {}
+void _draw8()
+{
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_X_DIR(POSITIVE);
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_X_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+}
+void _draw9()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    SET_X_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+}
+void _drawPoint()
+{
+    LASER_OFF();
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .25)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .25)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .25)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .25)
+    {
+        STEP_X();
+    }
+}
 
 void _drawSpace()
 {
@@ -1586,9 +1695,11 @@ void drawchar(char c)
     else if (c == '7') _draw7();
     else if (c == '8') _draw8();
     else if (c == '9') _draw9();
+    else if (c == '.') _drawPoint();
     else if (c == ' ') _drawSpace();
+    // clang-format on
 
-    DrawCircle(g_x, g_y, 2.5, GREEN);
+    // DrawCircle(g_x, g_y, 2.5, GREEN);
 
     LASER_OFF();
     for (int i = 0; i < CHAR_PAD; i++)
@@ -1596,8 +1707,6 @@ void drawchar(char c)
         STEP_X();
     }
     LASER_ON();
-
-    // clang-format on
 }
 
 #include <string.h>
@@ -1654,10 +1763,14 @@ int main(int argc, char *argv[])
         ClearBackground(BLACK);
 
         DrawString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-
         g_x = 50, g_y = g_y + CHAR_SIZE + CHAR_PAD;
-
         DrawString("0123456789!@#$%^&*()-");
+        g_x = 50, g_y = g_y + CHAR_SIZE + CHAR_PAD;
+        DrawString("1.123%");
+        g_x = 50, g_y = g_y + CHAR_SIZE + CHAR_PAD;
+        DrawString("To Error is turkey!");
+        g_x = 50, g_y = g_y + CHAR_SIZE + CHAR_PAD;
+        DrawString("Hello world!");
 
         EndDrawing();
     }
