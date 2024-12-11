@@ -913,7 +913,46 @@ void _drawS()
 
     LASER_ON();
 }
-void _drawT() {}
+void _drawT()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI((CHAR_SIZE * .5))
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+
+    SET_X_DIR(POSITIVE);
+
+    FORI((CHAR_SIZE * .5))
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+}
 void _drawU() {}
 void _drawV() {}
 void _drawW() {}
