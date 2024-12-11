@@ -521,11 +521,11 @@ void _drawJ()
 void _drawK()
 {
     LASER_OFF();
-    for (size_t i = 0; i < .1 * CHAR_SIZE; i++)
+    for (int i = 0; i < .1 * CHAR_SIZE; i++)
     {
         STEP_X();
     }
-LASER_ON();
+    LASER_ON();
     SET_Y_DIR(NEGITIVE);
     for (int i = 0; i < CHAR_SIZE; i++)
     {
