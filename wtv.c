@@ -500,8 +500,6 @@ void _drawJ()
         STEP_Y();
     }
 
-    SET_X_DIR(NEGITIVE);
-
     for (int i = 0; i < (CHAR_SIZE * .5); i++)
     {
         STEP_X();
@@ -511,7 +509,7 @@ void _drawJ()
 
     SET_X_DIR(POSITIVE);
 
-    for (int i = 0; i < (CHAR_SIZE * .5); i++)
+    for (int i = 0; i < (CHAR_SIZE); i++)
     {
         STEP_X();
     }
@@ -535,8 +533,89 @@ void _drawK()
         STEP_Y();
         STEP_X();
     }
+
+    SET_X_DIR(NEGITIVE);
+    SET_Y_DIR(POSITIVE);
+    LASER_OFF();
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    LASER_ON();
+
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+
+    SET_X_DIR(NEGITIVE);
+    SET_Y_DIR(NEGITIVE);
+
+    LASER_OFF();
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    LASER_ON();
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
 }
-void _drawL() {}
+void _drawL()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    LASER_ON();
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE * .50)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+
+    FORI(CHAR_SIZE * .50)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+}
 void _drawM() {}
 void _drawN() {}
 void _drawO() {}
@@ -592,6 +671,8 @@ void drawchar(char c)
     else if (c == 'Y' || c == 'y') _drawY();
     else if (c == 'Z' || c == 'z') _drawZ();
     else if (c == ' ') _drawSpace();
+
+    DrawCircle(g_x, g_y, 2.5, GREEN);
 
     LASER_OFF();
     for (int i = 0; i < CHAR_PAD; i++)
@@ -655,7 +736,7 @@ int main(int argc, char *argv[])
         BeginDrawing();
         ClearBackground(BLACK);
 
-        DrawString("ABCDEFGHIJK L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) -");
+        DrawString("ABCDEFGHIJKL M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) -");
 
         EndDrawing();
     }
