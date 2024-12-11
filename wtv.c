@@ -518,37 +518,19 @@ void _drawJ()
 
     LASER_ON();
 }
+
+#define FORI(SOME) for (int i = 0; i < (SOME); i++)
+
 void _drawK()
 {
-    LASER_OFF();
-    for (int i = 0; i < .1 * CHAR_SIZE; i++)
-    {
-        STEP_X();
-    }
-    LASER_ON();
     SET_Y_DIR(NEGITIVE);
-    for (int i = 0; i < CHAR_SIZE; i++)
+    FORI(CHAR_SIZE * .5)
     {
         STEP_Y();
     }
 
-    LASER_OFF();
-
     SET_X_DIR(POSITIVE);
-
-    for (int i = 0; i < CHAR_SIZE; i++)
-        STEP_X();
-
-    LASER_ON();
-    SET_Y_DIR(POSITIVE);
-    SET_X_DIR(NEGITIVE);
-    for (int i = 0; i < CHAR_SIZE * .5; i++)
-    {
-        STEP_Y();
-        STEP_X();
-    }
-    SET_X_DIR(POSITIVE);
-    for (int i = 0; i < CHAR_SIZE * .5; i++)
+    FORI(CHAR_SIZE * .5)
     {
         STEP_Y();
         STEP_X();
