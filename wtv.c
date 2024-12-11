@@ -716,8 +716,104 @@ void _drawO()
         STEP_X();
     }
 }
-void _drawP() {}
-void _drawQ() {}
+void _drawP()
+{
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+    SET_X_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+}
+void _drawQ()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .25)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    FORI(CHAR_SIZE * .75)
+    {
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .75)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE * .75)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .75)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .75)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE * .25)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+}
 void _drawR() {}
 void _drawS() {}
 void _drawT() {}
@@ -822,6 +918,7 @@ int main(int argc, char *argv[])
 {
 
     InitWindow(800, 600, "");
+    SetTargetFPS(15);
 
     LASER_ON();
 
