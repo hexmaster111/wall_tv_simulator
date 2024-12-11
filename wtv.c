@@ -12,8 +12,11 @@ int g_laser_state;
 
 void _plot_point()
 {
-    if (g_laser_state)
+    if (g_laser_state == 1)
         DrawPixel(g_x, g_y, YELLOW);
+
+    // if (g_laser_state == 0)
+    //     DrawPixel(g_x, g_y, PURPLE);
 }
 
 void STEP_X()
@@ -59,6 +62,8 @@ void LASER_OFF()
  *          in the bottem left corner of the start of the char
  *     _draw'char' will leave XDIR(POSITIVE)
  */
+
+#define FORI(SOME) for (int i = 0; i < (SOME); i++)
 
 void _drawA()
 {
@@ -516,9 +521,6 @@ void _drawJ()
 
     LASER_ON();
 }
-
-#define FORI(SOME) for (int i = 0; i < (SOME); i++)
-
 void _drawK()
 {
     SET_Y_DIR(NEGITIVE);
@@ -616,8 +618,67 @@ void _drawL()
 
     LASER_ON();
 }
-void _drawM() {}
-void _drawN() {}
+void _drawM()
+{
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+}
+void _drawN()
+{
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    LASER_ON();
+}
 void _drawO() {}
 void _drawP() {}
 void _drawQ() {}
@@ -736,7 +797,7 @@ int main(int argc, char *argv[])
         BeginDrawing();
         ClearBackground(BLACK);
 
-        DrawString("ABCDEFGHIJKL M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) -");
+        DrawString("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-");
 
         EndDrawing();
     }
