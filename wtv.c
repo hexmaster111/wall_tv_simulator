@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include <raymath.h>
 
 enum edirection
 {
@@ -679,7 +680,42 @@ void _drawN()
 
     LASER_ON();
 }
-void _drawO() {}
+void _drawO()
+{
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+}
 void _drawP() {}
 void _drawQ() {}
 void _drawR() {}
