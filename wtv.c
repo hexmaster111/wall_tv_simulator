@@ -1134,15 +1134,126 @@ void _drawW()
             blink = 0;
         }
     }
+
+    LASER_OFF();
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
 }
-void _drawX() {}
-void _drawY() {}
-void _drawZ() {}
+void _drawX()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    LASER_ON();
+
+    SET_X_DIR(NEGITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_X_DIR(POSITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+}
+void _drawY()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    LASER_OFF();
+    SET_Y_DIR(POSITIVE);
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    LASER_ON();
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+    SET_X_DIR(POSITIVE);
+    LASER_OFF();
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_X();
+    }
+    LASER_ON();
+}
+void _drawZ()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+    LASER_ON();
+    SET_Y_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+    SET_X_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+    SET_X_DIR(POSITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+}
 void _drawSpace()
 {
     LASER_OFF();
     SET_X_DIR(POSITIVE);
-    for (int i = 0; i < CHAR_SIZE; i++)
+    FORI(CHAR_SIZE)
     {
         STEP_X();
     }
