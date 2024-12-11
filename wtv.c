@@ -814,8 +814,105 @@ void _drawQ()
         STEP_Y();
     }
 }
-void _drawR() {}
-void _drawS() {}
+void _drawR()
+{
+
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_Y();
+    }
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    SET_X_DIR(POSITIVE);
+    char blink = 0;
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+
+        if (!blink)
+        {
+            STEP_Y();
+            blink = 1;
+        }
+        else
+        {
+            blink = 0;
+        }
+    }
+}
+void _drawS()
+{
+    LASER_OFF();
+    SET_Y_DIR(NEGITIVE);
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+        STEP_Y();
+    }
+    LASER_ON();
+
+    SET_X_DIR(NEGITIVE);
+    SET_Y_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    FORI(CHAR_SIZE * .5)
+    {
+        STEP_Y();
+    }
+
+    SET_X_DIR(NEGITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    LASER_OFF();
+
+    SET_X_DIR(POSITIVE);
+
+    FORI(CHAR_SIZE)
+    {
+        STEP_X();
+    }
+
+    LASER_ON();
+}
 void _drawT() {}
 void _drawU() {}
 void _drawV() {}
