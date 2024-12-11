@@ -50,8 +50,8 @@ void LASER_OFF()
     g_laser_state = 0;
 }
 
-#define CHAR_SIZE (10)
-#define CHAR_PAD (3)
+#define CHAR_SIZE (20)
+#define CHAR_PAD (5)
 
 /*
  *     When calling a _draw'char' func,
@@ -518,7 +518,42 @@ void _drawJ()
 
     LASER_ON();
 }
-void _drawK() {}
+void _drawK()
+{
+    LASER_OFF();
+    for (size_t i = 0; i < .1 * CHAR_SIZE; i++)
+    {
+        STEP_X();
+    }
+LASER_ON();
+    SET_Y_DIR(NEGITIVE);
+    for (int i = 0; i < CHAR_SIZE; i++)
+    {
+        STEP_Y();
+    }
+
+    LASER_OFF();
+
+    SET_X_DIR(POSITIVE);
+
+    for (int i = 0; i < CHAR_SIZE; i++)
+        STEP_X();
+
+    LASER_ON();
+    SET_Y_DIR(POSITIVE);
+    SET_X_DIR(NEGITIVE);
+    for (int i = 0; i < CHAR_SIZE * .5; i++)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+    SET_X_DIR(POSITIVE);
+    for (int i = 0; i < CHAR_SIZE * .5; i++)
+    {
+        STEP_Y();
+        STEP_X();
+    }
+}
 void _drawL() {}
 void _drawM() {}
 void _drawN() {}
@@ -638,7 +673,7 @@ int main(int argc, char *argv[])
         BeginDrawing();
         ClearBackground(BLACK);
 
-        DrawString("HELLO WORLD! A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) -");
+        DrawString("ABCDEFGHIJK L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 ! @ # $ % ^ & * ( ) -");
 
         EndDrawing();
     }
